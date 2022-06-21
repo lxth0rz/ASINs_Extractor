@@ -9,7 +9,6 @@
             "description": "Specify an input url",
             "prefill": "",
             "default": "",
-            "pattern": "/https?:\\/\\/(www|smile)\\.amazon\\.com\\/(?:(?:[\\w-]+\\/)?(?:dp|gp\\/product)\\/(\\w{10})\\/)?/",
             "editor": "textfield"
         },
         "FirstPageOnly": {
