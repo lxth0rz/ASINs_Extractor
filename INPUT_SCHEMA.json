@@ -11,7 +11,7 @@
             "default": "",
             "editor": "textfield"
         },
-        "FirstPageOnly": {
+        "first_page_only": {
                     "title": "First Page Only",
                     "type": "boolean",
                     "description": "Only extract ASINs from first overview page only the stops the actor.",
