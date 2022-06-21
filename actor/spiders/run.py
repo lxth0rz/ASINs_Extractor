@@ -49,10 +49,10 @@ class ASINsExtractor(Spider):
             self.input_url = actor_input["input_url"]
             self.first_page_only = actor_input["first_page_only"]
 
-        #for input_url in self.inputs_urls:
-        yield Request(url=self.input_url,
-                      #headers=self.headers,
-                      callback=self.parse_overview_page)
+        if self.input_url.startswith('https://www.amazon.com/') or self.input_url.startswith("https://amazon.com/"):
+            yield Request(url=self.input_url,
+                          #headers=self.headers,
+                          callback=self.parse_overview_page)
 
     def parse_overview_page(self, response):
 
