@@ -12,20 +12,20 @@ class ASINsExtractor(Spider):
 
     name = 'asins_extractor'
 
-    headers = {'Host': 'www.amazon.com',
-               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0',
-               'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-               'Accept-Language': 'en-GB,en;q=0.5',
-               'Accept-Encoding': 'gzip, deflate',
-               'Connection': 'keep-alive',
-               'Upgrade-Insecure-Requests': '1',}
+    # headers = {'Host': 'www.amazon.com',
+    #            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0',
+    #            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    #            'Accept-Language': 'en-GB,en;q=0.5',
+    #            'Accept-Encoding': 'gzip, deflate',
+    #            'Connection': 'keep-alive',
+    #            'Upgrade-Insecure-Requests': '1',}
 
     logger = None
 
     first_page_only = False
     total_number_of_inputs_urls = 0
     #input_url = ['https://www.amazon.com/s?k=python']
-    input_url = 'https://www.amazon.com/s?k=python'
+    input_url = 'https://www.amazon.com/gp/search/ref=sr_nr_n_0?fst=as%3Aoff&rh=n%3A16310091%2Ck%3Agear+ties&keywords=gear+ties&ie=UTF8&qid=1505759063&rnid=2941120011'
 
     directory_path = os.getcwd()
 
@@ -51,7 +51,7 @@ class ASINsExtractor(Spider):
 
         #for input_url in self.inputs_urls:
         yield Request(url=self.input_url,
-                      headers=self.headers,
+                      #headers=self.headers,
                       callback=self.parse_overview_page)
 
     def parse_overview_page(self, response):
@@ -67,14 +67,14 @@ class ASINsExtractor(Spider):
                     if 'Dropbox' not in self.directory_path:
                         apify.pushData(obj)
                     else:
-                        yield apify
+                        yield obj
 
         if not self.first_page_only:
             next_url = response.xpath('.//a[contains(@class, "s-pagination-item s-pagination-next")]/@href')
             if next_url and len(next_url) > 0:
                 next_url = next_url.extract()[0]
-                next_url = urljoin(self.base_url, next_url)
+                next_url = urljoin(response.url, next_url)
                 yield Request(url=next_url,
                               meta=response.meta,
-                              headers=self.headers,
+                              #headers=self.headers,
                               callback=self.parse_overview_page)
