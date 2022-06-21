@@ -26,5 +26,5 @@
             "editor": "proxy"
         }
     },
-    "required": ["keyword"]
+    "required": ["input_url"]
 }

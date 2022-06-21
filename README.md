@@ -1,4 +1,4 @@
-# ASINs Extractor
+## ASINs Extractor
 
 This actor allows you to extract ASINs from Amazon input URL.
  
@@ -18,10 +18,10 @@ Each record represent a title. The following fields is the current data you will
 
 ```json
 {
-    "ASIN": "tt4574334",
-    "Overview Page URL"
+    "ASIN": "1593279507",
+    "https://www.amazon.com/s?k=javascript&crid=UELNOIWXRCMO&sprefix=javascr%2Caps%2C277&ref=nb_sb_noss_2"
   }
 ```
 
 If you have any problem or anything does not work,
-please file an [issue on Apify](https://console.apify.com/actors/ZZQ9).
+please file an [issue on Apify](https://console.apify.com/actors/3vRNQLMhy0TLxnUg8#/issues).
