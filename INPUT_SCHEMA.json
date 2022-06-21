@@ -1,0 +1,30 @@
+{
+    "title": "Scrapy Executor",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "inputs_url": {
+            "title": "Input URL",
+            "type": "string",
+            "description": "Specify an input url",
+            "prefill": "",
+            "default": "",
+            "pattern": "/https?:\\/\\/(www|smile)\\.amazon\\.com\\/(?:(?:[\\w-]+\\/)?(?:dp|gp\\/product)\\/(\\w{10})\\/)?/",
+            "editor": "textfield"
+        },
+        "FirstPageOnly": {
+                    "title": "Extract ASINs from the first page only.",
+                    "type": "boolean",
+                    "description": "Only extract ASINs from first overview page only the stops the actor.",
+                    "default": true
+        },
+        "proxyConfig": {
+            "title": "Proxy",
+            "type": "object",
+            "description": "Proxy servers let you bypass website protections, avoid IP address blocking and view content for other countries. Try to use the proxy if you are experiencing timeout errors.",
+            "default": {},
+            "editor": "proxy"
+        }
+    },
+    "required": ["keyword"]
+}
