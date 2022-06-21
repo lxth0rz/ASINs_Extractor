@@ -46,7 +46,7 @@ class ASINsExtractor(Spider):
             actor_input = default_kv_store_client.get_record(os.environ['APIFY_INPUT_KEY'])['value']
             self.logger.info(actor_input)
 
-            self.input_url = actor_input["inputs_urls"]
+            self.input_url = actor_input["input_url"]
             self.first_page_only = actor_input["first_page_only"]
 
         #for input_url in self.inputs_urls:
