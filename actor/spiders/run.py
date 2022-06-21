@@ -24,7 +24,8 @@ class ASINsExtractor(Spider):
 
     first_page_only = False
     total_number_of_inputs_urls = 0
-    inputs_urls = ['https://www.amazon.com/s?k=python']
+    #input_url = ['https://www.amazon.com/s?k=python']
+    input_url = 'https://www.amazon.com/s?k=python'
 
     directory_path = os.getcwd()
 
@@ -45,13 +46,13 @@ class ASINsExtractor(Spider):
             actor_input = default_kv_store_client.get_record(os.environ['APIFY_INPUT_KEY'])['value']
             self.logger.info(actor_input)
 
-            self.inputs_urls = actor_input["inputs_urls"]
+            self.input_url = actor_input["inputs_urls"]
             self.first_page_only = actor_input["first_page_only"]
 
-        for input_url in self.inputs_urls:
-            yield Request(url=input_url,
-                          headers=self.headers,
-                          callback=self.parse_overview_page)
+        #for input_url in self.inputs_urls:
+        yield Request(url=self.input_url,
+                      headers=self.headers,
+                      callback=self.parse_overview_page)
 
     def parse_overview_page(self, response):
 

@@ -3,7 +3,7 @@
     "type": "object",
     "schemaVersion": 1,
     "properties": {
-        "inputs_url": {
+        "input_url": {
             "title": "Input URL",
             "type": "string",
             "description": "Specify an input url",
@@ -13,7 +13,7 @@
             "editor": "textfield"
         },
         "FirstPageOnly": {
-                    "title": "Extract ASINs from the first page only.",
+                    "title": "First Page Only",
                     "type": "boolean",
                     "description": "Only extract ASINs from first overview page only the stops the actor.",
                     "default": true
