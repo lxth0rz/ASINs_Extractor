@@ -9,9 +9,7 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-import os
-
-BOT_NAME = 'amazon'
+BOT_NAME = 'actor'
 
 SPIDER_MODULES = ['actor.spiders']
 NEWSPIDER_MODULE = 'actor.spiders'
@@ -83,16 +81,10 @@ NEWSPIDER_MODULE = 'actor.spiders'
 # Enable showing throttling stats for every response received:
 #AUTOTHROTTLE_DEBUG = False
 
-env = os.getenv("SCRAPY_ENV")
-
-# if env is not None and env == "dev":
-#     print("Running in the dev env.")
-#     # Enable and configure HTTP caching (disabled by default)
-#     # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
-#     HTTPCACHE_ENABLED = True
-#     # HTTPCACHE_EXPIRATION_SECS = 0
-#     HTTPCACHE_DIR = 'httpcache'
-#     # HTTPCACHE_IGNORE_HTTP_CODES = []
-#     HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-# else:
-#     print("Running in the prod env.")
+# Enable and configure HTTP caching (disabled by default)
+# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
+#HTTPCACHE_ENABLED = True
+#HTTPCACHE_EXPIRATION_SECS = 0
+#HTTPCACHE_DIR = 'httpcache'
+#HTTPCACHE_IGNORE_HTTP_CODES = []
+#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
