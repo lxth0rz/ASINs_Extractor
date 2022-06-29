@@ -25,7 +25,8 @@ class ASINsExtractor(Spider):
     first_page_only = False
     total_number_of_inputs_urls = 0
     #input_url = ['https://www.amazon.com/s?k=python']
-    input_url = 'https://www.amazon.com/gp/search/ref=sr_nr_n_0?fst=as%3Aoff&rh=n%3A16310091%2Ck%3Agear+ties&keywords=gear+ties&ie=UTF8&qid=1505759063&rnid=2941120011'
+    #input_url = 'https://www.amazon.com/gp/search/ref=sr_nr_n_0?fst=as%3Aoff&rh=n%3A16310091%2Ck%3Agear+ties&keywords=gear+ties&ie=UTF8&qid=1505759063&rnid=2941120011'
+    input_url = 'https://www.amazon.com/s?me=A1YMOO46VY7RRT&marketplaceID=ATVPDKIKX0DER'
 
     directory_path = os.getcwd()
 
