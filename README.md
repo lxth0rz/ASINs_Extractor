@@ -1,27 +1,33 @@
-## ASINs Extractor
+# PlaywrightCrawler project
 
-This actor allows you to extract ASINs from Amazon input URL.
- 
-## Input configuration
+This template is a production ready boilerplate for developing with `PlaywrightCrawler`.
+Use this to bootstrap your projects using the most up-to-date code.
 
-The actor has the following input options:
+If you're looking for examples or want to learn more visit:
 
-- **Input URL** - Specify an input url.
-- **First Page Only** - Only extract ASINs from first overview page only the stops the actor.
-- **Proxy** - Optionally, select a proxy to be used by the actor,
-  in order to avoid IP address-based blocking by the target website.
-  The actor automatically executes all the Scrapy's HTTP(S) requests through the proxy.
+- [Documentation](https://sdk.apify.com/docs/api/playwright-crawler)
+- [Examples](https://sdk.apify.com/docs/examples/playwright-crawler)
 
-## Results:
+## Documentation reference
 
-Each record represent a title. The following fields is the current data you will get from the scraper...
+- [Apify SDK](https://sdk.apify.com/)
+- [Apify Actor documentation](https://docs.apify.com/actor)
+- [Apify CLI](https://docs.apify.com/cli)
 
-```json
-{
-    "ASIN": "1593279507",
-    "https://www.amazon.com/s?k=javascript&crid=UELNOIWXRCMO&sprefix=javascr%2Caps%2C277&ref=nb_sb_noss_2"
-  }
-```
+## Writing a README
 
-If you have any problem or anything does not work,
-please file an [issue on Apify](https://console.apify.com/actors/3vRNQLMhy0TLxnUg8#/issues).
+See our tutorial on [writing READMEs for your actors](https://help.apify.com/en/articles/2912548-how-to-write-great-readme-for-your-actors) if you need more inspiration.
+
+### Table of contents
+
+If your README requires a table of contents, use the template below and make sure to keep the `<!-- toc start -->` and `<!-- toc end -->` markers.
+
+<!-- toc start -->
+- Introduction
+- Use Cases
+  - Case 1
+  - Case 2
+- Input
+- Output
+- Miscellaneous
+ <!-- toc end -->
