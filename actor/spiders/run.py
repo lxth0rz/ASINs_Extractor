@@ -12,13 +12,9 @@ class ASINsExtractor(Spider):
 
     name = 'asins_extractor'
 
-    # headers = {'Host': 'www.amazon.com',
-    #            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0',
-    #            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-    #            'Accept-Language': 'en-GB,en;q=0.5',
-    #            'Accept-Encoding': 'gzip, deflate',
-    #            'Connection': 'keep-alive',
-    #            'Upgrade-Insecure-Requests': '1',}
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
+    }
 
     logger = None
 
@@ -52,7 +48,7 @@ class ASINsExtractor(Spider):
 
         #for input_url in self.inputs_urls:
         yield Request(url=self.input_url,
-                      #headers=self.headers,
+                      headers=self.headers,
                       callback=self.parse_overview_page)
 
     def parse_overview_page(self, response):
@@ -77,5 +73,5 @@ class ASINsExtractor(Spider):
                 next_url = urljoin(response.url, next_url)
                 yield Request(url=next_url,
                               meta=response.meta,
-                              #headers=self.headers,
+                              headers=self.headers,
                               callback=self.parse_overview_page)
