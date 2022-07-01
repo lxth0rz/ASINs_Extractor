@@ -54,7 +54,6 @@ Apify.main(async () => {
                     scrapedData.push({
                         asin: $post.getAttribute("data-asin"),
                         title: $post.querySelector('span.a-size-base-plus.a-color-base.a-text-normal').innerText,
-                        price: $post.querySelector('span.a-offscreen').innerText,
                         source_url: source_url
                     });
                 });
