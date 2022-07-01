@@ -8,10 +8,10 @@ Apify.main(async () => {
     // Apify.openRequestQueue() creates a preconfigured RequestQueue instance.
     // We add our first request to it - the initial page the crawler will visit.
 
-    const { startUrls } = await Apify.getInput();
-    // const startUrls = [
-    //     'https://www.amazon.com/s?k=nodeajsa&crid=TDHPJKM2ZJ28&sprefix=python%2Caps%2C232&ref=nb_sb_noss_1'
-    // ];
+    //const { startUrls } = await Apify.getInput();
+    const startUrls = [
+        'https://www.amazon.com/s?k=python&crid'
+    ];
 
     const requestList = await Apify.openRequestList('start-urls', startUrls);
     const requestQueue = await Apify.openRequestQueue();
@@ -44,20 +44,23 @@ Apify.main(async () => {
             console.log(`Processing ${request.url}...`);
 
             // A function to be evaluated by Playwright within the browser context.
-            const data = await page.$$eval('div.sg-col-4-of-12.s-result-item.s-asin.sg-col-4-of-16.sg-col.s-widget-spacing-small.sg-col-4-of-20', $posts => {
+            let source_url;
+            const data = await page.$$eval('div.sg-col-4-of-12.s-result-item.s-asin.sg-col-4-of-16.sg-col.s-widget-spacing-small.sg-col-4-of-20', ($posts, source_url) => {
 
                 const scrapedData = [];
 
                 // We're getting the title, rank and URL of each post on Hacker News.
                 $posts.forEach($post => {
                     scrapedData.push({
-                        title: $post.querySelector('span.a-size-base-plus.a-color-base.a-text-normal').innerText,
                         asin: $post.getAttribute("data-asin"),
+                        title: $post.querySelector('span.a-size-base-plus.a-color-base.a-text-normal').innerText,
+                        price: $post.querySelector('span.a-offscreen').innerText,
+                        source_url: source_url
                     });
                 });
 
                 return scrapedData;
-            });
+            }, source_url = request.url);
 
             // Store the results to the default dataset.
             await Apify.pushData(data);

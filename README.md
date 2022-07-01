@@ -1,7 +1,7 @@
 ## ASINs Extractor
 
 This actor allows you to extract ASINs from Amazon input URL.
- 
+
 ## Input configuration
 
 The actor has the following input options:
@@ -19,6 +19,8 @@ Each record represent a title. The following fields is the current data you will
 ```json
 {
     "ASIN": "1593279507",
+    "title": "Eloquent JavaScript, 3rd Edition: A Modern Introduction to Programming",
+    "price": "18.99",
     "https://www.amazon.com/s?k=javascript&crid=UELNOIWXRCMO&sprefix=javascr%2Caps%2C277&ref=nb_sb_noss_2"
   }
 ```
